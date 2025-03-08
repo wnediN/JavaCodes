@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Sieve {
+
+	public static void main(String[] args) {
+		int n = 100;
+		ArrayList<Integer> L = findAllPrimes(n);
+		System.out.println(L);
+	}
+
+	//find all the primes <= n
+	public static ArrayList<Integer> findAllPrimes(int n) {
+		ArrayList<Integer> primes = new ArrayList<>();
+		
+		boolean[] isPrime = new boolean[n+1];
+		//isPrime[x] is true if and only if x is prime
+		Arrays.fill(isPrime, true);  //assume x is prime for all x>=2
+		
+		for(int j=2; j<=n; j++) {
+			if(isPrime[j]) {
+				primes.add(j);
+			
+				//mark all the proper multiples of j as non-prime
+				for(int k=2*j; k<=n; k+=j) {
+					isPrime[k] = false;
+				}
+			}
+		}
+		return primes;
+	}
+}
