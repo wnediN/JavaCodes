@@ -1,0 +1,20 @@
+public class EuclideanGCD {
+
+    public static int gcd(int a, int b) {
+        // Base case: if b is 0, the GCD is a
+        if (b == 0) {
+            return Math.abs(a);
+        }
+        return gcd(b, a % b);
+    }
+
+    public static void main(String[] args) {
+        // example inputs
+        int num1 = 56;
+        int num2 = 98;
+
+        // calculate, print GCD
+        int result = gcd(num1, num2);
+        System.out.println("GCD of " + num1 + " and " + num2 + " is: " + result);
+    }
+}
