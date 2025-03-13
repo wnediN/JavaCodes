@@ -1,0 +1,16 @@
+import java.util.*;
+import java.io.*;
+public class BufferedReaderPractice  {
+
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader("file.in"));
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("file.out")));
+		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		br.close();
+		pw.close();
+		
+	}
+
+}
